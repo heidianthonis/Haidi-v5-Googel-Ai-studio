@@ -5,7 +5,7 @@ export const MAIN_SERVICES: Service[] = [
     id: "use-case-discovery",
     title: "AI Use Case Discovery",
     description: "Identify high-impact AI opportunities tailored to your business goals, industry context, and organizational capabilities.",
-    image: "/images/discovery.jpg",
+    image: "images/discovery.jpg",
     features: [
       "Comprehensive opportunity assessment",
       "Industry-specific use case identification",
@@ -18,7 +18,7 @@ export const MAIN_SERVICES: Service[] = [
     id: "adoption-programmes",
     title: "AI Adoption Programmes",
     description: "Navigate the complexities of AI adoption with proven frameworks, best practices, and hands-on guidance throughout your transformation journey.",
-    image: "/images/laptop.jpg",
+    image: "images/laptop.jpg",
     features: [
       "AI readiness assessment",
       "Technology stack recommendations",
@@ -32,7 +32,7 @@ export const MAIN_SERVICES: Service[] = [
     id: "customer-journeys",
     title: "Agentic Customer Journeys",
     description: "Transform customer experiences by integrating AI across touchpoints, creating personalized journeys that drive engagement and loyalty.",
-    image: "/images/journey.jpg",
+    image: "images/journey.jpg",
     features: [
       "Journey mapping and analysis",
       "Touchpoint optimization with AI",

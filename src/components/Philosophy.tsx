@@ -53,7 +53,7 @@ export const Philosophy = () => {
           >
             <div className="aspect-square bg-white rounded-3xl shadow-xl shadow-blue-100 border border-blue-50 overflow-hidden relative">
                <img 
-                src="/images/progress.jpg" 
+                src={`${import.meta.env.BASE_URL}images/progress.jpg`}
                 alt="AI Progress" 
                 className="w-full h-full object-cover opacity-90"
                 onError={(e) => {

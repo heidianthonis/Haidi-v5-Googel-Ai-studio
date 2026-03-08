@@ -44,7 +44,7 @@ export const Hero = () => {
           >
             <div className="relative z-10 aspect-[4/5] max-w-md mx-auto rounded-[3rem] overflow-hidden shadow-2xl shadow-blue-200/50 border-8 border-white">
               <img 
-                src="/images/strategy.jpg" 
+                src={`${import.meta.env.BASE_URL}images/strategy.jpg`}
                 alt="AI Strategy" 
                 className="w-full h-full object-cover"
                 onError={(e) => {
