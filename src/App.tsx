@@ -20,6 +20,7 @@ function ScrollToTop() {
   return null;
 }
 
+// Main application component
 export default function App() {
   const [posts, setPosts] = useState<BlogPost[]>([]);
   const [loading, setLoading] = useState(true);
