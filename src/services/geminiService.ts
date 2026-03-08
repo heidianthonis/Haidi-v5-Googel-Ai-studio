@@ -1,18 +1,3 @@
-import { GoogleGenAI, Type } from "@google/genai";
-
-// Lazy initialization to prevent crashes if process.env is not available at module load
-let aiInstance: GoogleGenAI | null = null;
-
-function getAi() {
-  if (!aiInstance) {
-    const apiKey = typeof process !== 'undefined' ? process.env.GEMINI_API_KEY : undefined;
-    if (apiKey) {
-      aiInstance = new GoogleGenAI({ apiKey });
-    }
-  }
-  return aiInstance;
-}
-
 export interface BlogPost {
   id: string;
   title: string;
