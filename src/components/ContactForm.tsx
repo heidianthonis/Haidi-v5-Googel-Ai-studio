@@ -5,10 +5,31 @@ import { Send } from 'lucide-react';
 export const ContactForm = () => {
   const [status, setStatus] = React.useState<'idle' | 'submitting' | 'success'>('idle');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setStatus('submitting');
-    setTimeout(() => setStatus('success'), 1500);
+    
+    const formData = new FormData(e.currentTarget);
+    
+    try {
+      const response = await fetch('https://formspree.io/f/heidi.anthonis@gmail.com', { 
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+      
+      if (response.ok) {
+        setStatus('success');
+      } else {
+        throw new Error('Failed to send message');
+      }
+    } catch (error) {
+      console.error('Form submission error:', error);
+      alert('There was an error sending your message. Please try again or email me directly.');
+      setStatus('idle');
+    }
   };
 
   if (status === 'success') {
@@ -38,26 +59,40 @@ export const ContactForm = () => {
           <input
             type="text"
             id="name"
+            name="name"
             required
             className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-slate-900/5 focus:border-slate-900 transition-all bg-white"
             placeholder="Jane Doe"
           />
         </div>
         <div>
-          <label htmlFor="company" className="block text-sm font-medium text-slate-700 mb-2">Company</label>
+          <label htmlFor="email" className="block text-sm font-medium text-slate-700 mb-2">Email Address</label>
           <input
-            type="text"
-            id="company"
+            type="email"
+            id="email"
+            name="email"
             required
             className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-slate-900/5 focus:border-slate-900 transition-all bg-white"
-            placeholder="Acme Corp"
+            placeholder="jane@example.com"
           />
         </div>
+      </div>
+      <div>
+        <label htmlFor="company" className="block text-sm font-medium text-slate-700 mb-2">Company</label>
+        <input
+          type="text"
+          id="company"
+          name="company"
+          required
+          className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-slate-900/5 focus:border-slate-900 transition-all bg-white"
+          placeholder="Acme Corp"
+        />
       </div>
       <div>
         <label htmlFor="challenge" className="block text-sm font-medium text-slate-700 mb-2">What is your biggest AI challenge?</label>
         <textarea
           id="challenge"
+          name="message"
           required
           rows={5}
           className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-slate-900/5 focus:border-slate-900 transition-all bg-white resize-none"

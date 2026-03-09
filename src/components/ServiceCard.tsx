@@ -6,10 +6,11 @@ import { Service } from '../types';
 export const ServiceCard: React.FC<{ service: Service }> = ({ service }) => {
   return (
     <motion.div
+      id={service.id}
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      className="bg-white rounded-[2.5rem] border border-slate-100 shadow-sm hover:shadow-md transition-all overflow-hidden flex flex-col"
+      className="bg-white rounded-[2.5rem] border border-slate-100 shadow-sm hover:shadow-md transition-all overflow-hidden flex flex-col scroll-mt-32"
     >
       {service.image && (
         <div className="aspect-video w-full overflow-hidden">
