@@ -5,31 +5,29 @@ import { Send } from 'lucide-react';
 export const ContactForm = () => {
   const [status, setStatus] = React.useState<'idle' | 'submitting' | 'success'>('idle');
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setStatus('submitting');
     
     const formData = new FormData(e.currentTarget);
+    const name = formData.get('name');
+    const email = formData.get('email');
+    const company = formData.get('company');
+    const message = formData.get('message');
     
-    try {
-      const response = await fetch('https://formspree.io/f/heidi.anthonis@gmail.com', { 
-        method: 'POST',
-        body: formData,
-        headers: {
-          'Accept': 'application/json'
-        }
-      });
-      
-      if (response.ok) {
-        setStatus('success');
-      } else {
-        throw new Error('Failed to send message');
-      }
-    } catch (error) {
-      console.error('Form submission error:', error);
-      alert('There was an error sending your message. Please try again or email me directly.');
-      setStatus('idle');
-    }
+    const subject = encodeURIComponent(`New Contact Form Submission from ${name}`);
+    const body = encodeURIComponent(
+      `Name: ${name}\n` +
+      `Email: ${email}\n` +
+      `Company: ${company}\n\n` +
+      `Challenge:\n${message}`
+    );
+    
+    // Open the user's default email client
+    window.location.href = `mailto:heidi.anthonis@gmail.com?subject=${subject}&body=${body}`;
+    
+    // Show success message
+    setStatus('success');
   };
 
   if (status === 'success') {
