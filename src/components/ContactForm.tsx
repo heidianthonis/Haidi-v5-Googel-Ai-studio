@@ -10,13 +10,7 @@ export const ContactForm = () => {
     setStatus('submitting');
     
     const formData = new FormData(e.currentTarget);
-    const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY;
-    
-    if (!accessKey) {
-      alert("The contact form is not fully configured yet. Please email me directly at heidi.anthonis@gmail.com");
-      setStatus('idle');
-      return;
-    }
+    const accessKey = "96adeecf-4f6a-42b3-97c8-df4a56b608cb";
     
     formData.append("access_key", accessKey);
     
