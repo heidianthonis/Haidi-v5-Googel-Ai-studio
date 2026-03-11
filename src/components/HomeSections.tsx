@@ -44,7 +44,7 @@ export const Hero = () => {
           >
             <Link to="/services" className="block relative z-10 aspect-[4/5] max-w-md mx-auto rounded-[3rem] overflow-hidden shadow-2xl shadow-blue-200/50 border-8 border-white hover:scale-[1.02] transition-transform duration-500">
               <img 
-                src={`${import.meta.env.BASE_URL}images/strategy.jpg`}
+                src="https://i.postimg.cc/jjysRSZS/strategy.jpg"
                 alt="AI Strategy" 
                 className="w-full h-full object-cover"
                 onError={(e) => {

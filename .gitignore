@@ -6,3 +6,10 @@ coverage/
 *.log
 .env*
 !.env.example
+
+# Ignore images to prevent AI Studio from corrupting binary files during push
+public/images/*.jpg
+public/images/*.jpeg
+public/images/*.png
+public/images/*.gif
+public/images/*.webp

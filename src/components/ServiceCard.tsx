@@ -15,7 +15,7 @@ export const ServiceCard: React.FC<{ service: Service }> = ({ service }) => {
       {service.image && (
         <div className="aspect-video w-full overflow-hidden">
           <img 
-            src={`${import.meta.env.BASE_URL}${service.image}`} 
+            src={service.image} 
             alt={service.title} 
             className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
             onError={(e) => {
