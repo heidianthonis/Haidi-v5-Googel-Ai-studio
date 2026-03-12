@@ -56,6 +56,9 @@ export const ContactForm = () => {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
+      {/* Honeypot Spam Protection */}
+      <input type="checkbox" name="botcheck" className="hidden" style={{ display: 'none' }} />
+      
       <div className="grid md:grid-cols-2 gap-6">
         <div>
           <label htmlFor="name" className="block text-sm font-medium text-slate-700 mb-2">Name</label>
