@@ -53,7 +53,7 @@ export const Philosophy = () => {
           >
             <div className="aspect-square bg-white rounded-3xl shadow-xl shadow-blue-100 border border-blue-50 overflow-hidden relative">
                <img 
-                src="https://i.postimg.cc/1zD9y3Jf/progress.jpg"
+                src="https://qeosmw0t4ezxbhtg.public.blob.vercel-storage.com/progress.jpg"
                 alt="AI Progress" 
                 className="w-full h-full object-cover opacity-90"
                 onError={(e) => {

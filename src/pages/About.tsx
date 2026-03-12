@@ -44,7 +44,7 @@ export const About = () => {
           <div className="order-1 lg:order-2">
             <div className="aspect-[4/5] bg-slate-100 rounded-[2.5rem] overflow-hidden shadow-sm relative group">
               <img 
-                src="https://i.postimg.cc/rp58qwQp/profile.jpg"
+                src="https://qeosmw0t4ezxbhtg.public.blob.vercel-storage.com/profile.jpg"
                 alt="Haidi Founder" 
                 className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
                 onError={(e) => {
