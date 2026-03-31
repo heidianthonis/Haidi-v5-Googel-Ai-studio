@@ -11,6 +11,7 @@ import { About } from './pages/About';
 import { Contact } from './pages/Contact';
 import { generateBlogPosts } from './services/geminiService';
 import { BlogPost } from './types';
+import { useTranslation } from 'react-i18next';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -24,11 +25,13 @@ function ScrollToTop() {
 export default function App() {
   const [posts, setPosts] = useState<BlogPost[]>([]);
   const [loading, setLoading] = useState(true);
+  const { i18n } = useTranslation();
 
   useEffect(() => {
     async function fetchPosts() {
       try {
-        const generatedPosts = await generateBlogPosts();
+        setLoading(true);
+        const generatedPosts = await generateBlogPosts(i18n.language);
         setPosts(generatedPosts);
       } catch (error) {
         console.error("Error fetching posts:", error);
@@ -37,7 +40,7 @@ export default function App() {
       }
     }
     fetchPosts();
-  }, []);
+  }, [i18n.language]);
 
   if (loading) {
     return (

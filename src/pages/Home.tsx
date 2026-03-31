@@ -6,8 +6,11 @@ import { BlogCard } from '../components/BlogCard';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { BlogPost } from '../types';
+import { useTranslation } from 'react-i18next';
 
 export const Home = ({ posts }: { posts: BlogPost[] }) => {
+  const { t } = useTranslation();
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -23,14 +26,14 @@ export const Home = ({ posts }: { posts: BlogPost[] }) => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-end mb-12">
             <div>
-              <h2 className="text-3xl font-semibold text-slate-900 mb-4">Latest Highlights</h2>
-              <p className="text-slate-600">Insights and strategies for the evolving AI landscape.</p>
+              <h2 className="text-3xl font-semibold text-slate-900 mb-4">{t('home.latestHighlights')}</h2>
+              <p className="text-slate-600">{t('home.insightsDescription')}</p>
             </div>
             <Link
               to="/blog"
               className="hidden md:flex items-center text-slate-900 font-semibold hover:underline underline-offset-4"
             >
-              View all insights
+              {t('home.viewAllInsights')}
               <ArrowRight className="ml-2 w-4 h-4" />
             </Link>
           </div>
@@ -46,7 +49,7 @@ export const Home = ({ posts }: { posts: BlogPost[] }) => {
               to="/blog"
               className="flex items-center justify-center w-full py-4 border border-slate-200 rounded-full text-slate-900 font-semibold"
             >
-              View all insights
+              {t('home.viewAllInsights')}
               <ArrowRight className="ml-2 w-4 h-4" />
             </Link>
           </div>

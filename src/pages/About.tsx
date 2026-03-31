@@ -1,22 +1,10 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { Check } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 export const About = () => {
-  const philosophy = [
-    {
-      title: "Human-Centered AI",
-      desc: "Technology should enhance human capabilities, not replace them. I design AI solutions that augment human decision-making and creativity."
-    },
-    {
-      title: "Practical Innovation",
-      desc: "Innovation without execution is just imagination. I focus on solutions that can be implemented and deliver measurable business value."
-    },
-    {
-      title: "Continuous Learning",
-      desc: "The AI landscape evolves rapidly. I stay at the forefront of technology trends while grounding recommendations in proven best practices."
-    }
-  ];
+  const { t } = useTranslation();
+  const philosophy = t('about.philosophy', { returnObjects: true }) as Array<{ title: string, desc: string }>;
 
   return (
     <motion.div
@@ -30,14 +18,11 @@ export const About = () => {
         <div className="grid lg:grid-cols-2 gap-16 items-center mb-32">
           <div className="order-2 lg:order-1">
             <h1 className="text-4xl lg:text-5xl font-semibold text-slate-900 mb-8 leading-tight">
-              Helping businesses thrive in the AI Era.
+              {t('about.title')}
             </h1>
             <div className="space-y-6 text-lg text-slate-600 leading-relaxed">
-              <p>
-                I'm passionate about bridging the gap between cutting-edge AI technology and practical business value. With a background in technology consulting and digital transformation, I help organizations navigate the complexities of AI adoption.
-              </p>
-              <p>
-                My approach combines strategic thinking with hands-on expertise, ensuring that AI initiatives deliver measurable results while enhancing the human experience at every touchpoint.
+              <p className="whitespace-pre-line">
+                {t('about.description')}
               </p>
             </div>
           </div>
@@ -60,10 +45,10 @@ export const About = () => {
         {/* Philosophy Section */}
         <div className="bg-[#f8faff] rounded-[2.5rem] p-12 lg:p-20 border border-blue-50/50">
           <h2 className="text-4xl font-bold text-slate-900 mb-12">
-            My <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-violet-600">Philosophy</span>
+            {t('about.philosophyTitlePrefix')} <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-violet-600">{t('about.philosophyTitleHighlight')}</span>
           </h2>
           <div className="space-y-6 max-w-4xl">
-            {philosophy.map((item) => (
+            {Array.isArray(philosophy) && philosophy.map((item) => (
               <motion.div 
                 key={item.title}
                 initial={{ opacity: 0, y: 10 }}

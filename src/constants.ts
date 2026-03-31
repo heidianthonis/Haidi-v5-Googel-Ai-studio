@@ -3,55 +3,54 @@ import { Service } from "./types";
 export const MAIN_SERVICES: Service[] = [
   {
     id: "use-case-discovery",
-    title: "AI Use Case Discovery",
-    description: "Identify high-impact AI opportunities tailored to your business goals, industry context, and organizational capabilities.",
+    title: "AI use case discovery",
+    description: "Identificeer AI kansen met hoge impact, afgestemd op je bedrijfsdoelen en passend bij jouw branche.",
     image: "https://qeosmw0t4ezxbhtg.public.blob.vercel-storage.com/discovery.jpg",
     features: [
-      "Comprehensive opportunity assessment",
-      "Industry-specific use case identification",
-      "ROI and feasibility analysis",
-      "Prioritization framework development",
-      "Quick-win identification"
+      "Assesment en kansenanalyse",
+      "Sector-specifieke use case identificatie",
+      "ROI- en haalbaarheidsanalyse",
+      "Opzetten van roadmaps en prioritering",
+      "Spotten van quick-wins"
     ]
   },
   {
     id: "adoption-programmes",
-    title: "AI Adoption Programmes",
-    description: "Navigate the complexities of AI adoption with proven frameworks, best practices, and hands-on guidance throughout your transformation journey.",
+    title: "AI adoptie strategie",
+    description: "Navigeer door de complexiteit van AI-adoptie met bewezen blauwdrukken, best practices en hands-on begeleiding.",
     image: "https://qeosmw0t4ezxbhtg.public.blob.vercel-storage.com/laptop.jpg",
     features: [
-      "AI readiness assessment",
-      "Technology stack recommendations",
-      "Implementation roadmap development",
-      "Change management strategy",
-      "Team capability building",
-      "Vendor evaluation and selection"
+      "AI-readiness inventarisatie",
+      "Aanbevelingen voor de technology stack",
+      "Ontwikkeling van de implementatie-roadmap",
+      "Verandermanagement-strategie",
+      "Ontwikkeling van teamcompetenties"
     ]
   },
   {
     id: "customer-journeys",
-    title: "Agentic Customer Journeys",
-    description: "Transform customer experiences by integrating AI across touchpoints, creating personalized journeys that drive engagement and loyalty.",
+    title: "AI customer journey",
+    description: "Verrijk klantervaringen door AI te integreren in alle relevante touchpoints en creëer future proof klantreizen.",
     image: "https://qeosmw0t4ezxbhtg.public.blob.vercel-storage.com/journey.jpg",
     features: [
-      "Journey mapping and analysis",
-      "Touchpoint optimization with AI",
-      "Conversational AI implementation"
+      "Journey mapping en analyse",
+      "Optimalisatie van touchpoints door AI inzet",
+      "Implementatie van conversational AI"
     ]
   }
 ];
 
 export const ADDITIONAL_SERVICES = [
   {
-    title: "AI Strategy Workshops",
-    description: "Interactive sessions to align stakeholders and define your AI vision and objectives."
+    title: "AI strategieworkshops",
+    description: "Interactieve sessies om stakeholders op één lijn te krijgen en jullie AI-visie en doelstellingen scherp te stellen."
   },
   {
-    title: "Advisory & Coaching",
-    description: "Ongoing guidance and support as you navigate your AI transformation journey."
+    title: "Advies & coaching",
+    description: "Doorlopende begeleiding en ondersteuning tijdens jullie gehele AI transformatie."
   },
   {
-    title: "AI Audits & Reviews",
-    description: "Assess existing AI initiatives and identify opportunities for optimization."
+    title: "AI-audits & reviews",
+    description: "Beoordeel bestaande AI-initiatieven en identificeer concrete kansen voor optimalisatie."
   }
 ];

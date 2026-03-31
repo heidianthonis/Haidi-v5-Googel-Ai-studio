@@ -1,19 +1,26 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'motion/react';
-import { Menu, X, Sparkles } from 'lucide-react';
+import { Menu, X, Sparkles, Globe } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = React.useState(false);
   const location = useLocation();
+  const { t, i18n } = useTranslation();
 
   const navLinks = [
-    { name: 'Home', path: '/' },
-    { name: 'Services', path: '/services' },
-    { name: 'Insights', path: '/blog' },
-    { name: 'About', path: '/about' },
-    { name: 'Contact', path: '/contact' },
+    { name: t('nav.home'), path: '/' },
+    { name: t('nav.services'), path: '/services' },
+    { name: t('nav.blog'), path: '/blog' },
+    { name: t('nav.about'), path: '/about' },
+    { name: t('nav.contact'), path: '/contact' },
   ];
+
+  const toggleLanguage = () => {
+    const nextLang = i18n.language === 'en' ? 'nl' : 'en';
+    i18n.changeLanguage(nextLang);
+  };
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-100">
@@ -25,7 +32,7 @@ export const Navbar = () => {
           </Link>
 
           {/* Desktop Nav */}
-          <div className="hidden md:flex space-x-8">
+          <div className="hidden md:flex items-center space-x-8">
             {navLinks.map((link) => (
               <Link
                 key={link.path}
@@ -37,10 +44,25 @@ export const Navbar = () => {
                 {link.name}
               </Link>
             ))}
+            
+            <button
+              onClick={toggleLanguage}
+              className="flex items-center space-x-1 px-3 py-1 rounded-full bg-slate-50 text-slate-600 hover:bg-slate-100 transition-colors text-xs font-semibold uppercase tracking-wider"
+            >
+              <Globe className="w-3.5 h-3.5" />
+              <span>{i18n.language === 'en' ? 'NL' : 'EN'}</span>
+            </button>
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="md:hidden">
+          <div className="md:hidden flex items-center space-x-4">
+            <button
+              onClick={toggleLanguage}
+              className="flex items-center space-x-1 px-3 py-1 rounded-full bg-slate-50 text-slate-600 hover:bg-slate-100 transition-colors text-xs font-semibold uppercase tracking-wider"
+            >
+              <Globe className="w-3.5 h-3.5" />
+              <span>{i18n.language === 'en' ? 'NL' : 'EN'}</span>
+            </button>
             <button onClick={() => setIsOpen(!isOpen)} className="text-slate-500 hover:text-slate-900">
               {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>

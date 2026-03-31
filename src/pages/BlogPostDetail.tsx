@@ -3,17 +3,20 @@ import { useParams, Link } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { Calendar, Clock, ArrowLeft, Share2 } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 import { BlogPost } from '../types';
+import { useTranslation } from 'react-i18next';
 
 export const BlogPostDetail = ({ posts }: { posts: BlogPost[] }) => {
   const { id } = useParams<{ id: string }>();
+  const { t } = useTranslation();
   const post = posts.find((p) => p.id === id);
 
   if (!post) {
     return (
       <div className="pt-48 pb-24 text-center">
-        <h2 className="text-2xl font-semibold text-slate-900 mb-4">Post not found</h2>
-        <Link to="/blog" className="text-blue-600 hover:underline">Back to Insights</Link>
+        <h2 className="text-2xl font-semibold text-slate-900 mb-4">{t('blog.notFound')}</h2>
+        <Link to="/blog" className="text-blue-600 hover:underline">{t('blog.backToInsights')}</Link>
       </div>
     );
   }
@@ -31,7 +34,7 @@ export const BlogPostDetail = ({ posts }: { posts: BlogPost[] }) => {
           className="inline-flex items-center text-sm font-medium text-slate-500 hover:text-blue-600 mb-12 transition-colors group"
         >
           <ArrowLeft className="w-4 h-4 mr-2 transition-transform group-hover:-translate-x-1" />
-          Back to Insights
+          {t('blog.backToInsights')}
         </Link>
 
         <header className="mb-12">
@@ -66,21 +69,21 @@ export const BlogPostDetail = ({ posts }: { posts: BlogPost[] }) => {
 
         <div className="prose prose-slate prose-lg max-w-none">
           <div className="markdown-body">
-            <ReactMarkdown>{post.content}</ReactMarkdown>
+            <ReactMarkdown remarkPlugins={[remarkGfm]}>{post.content}</ReactMarkdown>
           </div>
         </div>
 
         <footer className="mt-20 pt-12 border-t border-slate-100">
           <div className="bg-blue-50 rounded-3xl p-8 lg:p-12 text-center">
-            <h3 className="text-2xl font-semibold text-slate-900 mb-4">Want to dive deeper into this topic?</h3>
+            <h3 className="text-2xl font-semibold text-slate-900 mb-4">{t('blog.cta.title')}</h3>
             <p className="text-slate-600 mb-8 max-w-xl mx-auto">
-              I help businesses navigate these shifts and map their AI blind spots. Let's discuss how this applies to your specific context.
+              {t('blog.cta.description')}
             </p>
             <Link
               to="/contact"
               className="btn-primary inline-flex"
             >
-              Book a Consultation
+              {t('blog.cta.button')}
             </Link>
           </div>
         </footer>

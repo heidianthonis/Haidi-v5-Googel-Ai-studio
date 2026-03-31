@@ -1,8 +1,10 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { Send } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 export const ContactForm = () => {
+  const { t } = useTranslation();
   const [status, setStatus] = React.useState<'idle' | 'submitting' | 'success'>('idle');
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -30,7 +32,7 @@ export const ContactForm = () => {
       }
     } catch (error) {
       console.error('Form submission error:', error);
-      alert('There was an error sending your message. Please try again or email me directly.');
+      alert(t('contact.form.error'));
       setStatus('idle');
     }
   };
@@ -42,13 +44,13 @@ export const ContactForm = () => {
         animate={{ opacity: 1, scale: 1 }}
         className="bg-slate-50 p-12 rounded-3xl text-center border border-slate-100"
       >
-        <h3 className="text-2xl font-semibold text-slate-900 mb-4">Message Sent!</h3>
-        <p className="text-slate-600">Thank you for reaching out. I'll get back to you shortly.</p>
+        <h3 className="text-2xl font-semibold text-slate-900 mb-4">{t('contact.form.successTitle')}</h3>
+        <p className="text-slate-600">{t('contact.form.successMessage')}</p>
         <button
           onClick={() => setStatus('idle')}
           className="mt-8 text-sm font-semibold text-slate-900 hover:underline"
         >
-          Send another message
+          {t('contact.form.sendAnother')}
         </button>
       </motion.div>
     );
@@ -61,7 +63,7 @@ export const ContactForm = () => {
       
       <div className="grid md:grid-cols-2 gap-6">
         <div>
-          <label htmlFor="name" className="block text-sm font-medium text-slate-700 mb-2">Name</label>
+          <label htmlFor="name" className="block text-sm font-medium text-slate-700 mb-2">{t('contact.form.name')}</label>
           <input
             type="text"
             id="name"
@@ -72,7 +74,7 @@ export const ContactForm = () => {
           />
         </div>
         <div>
-          <label htmlFor="email" className="block text-sm font-medium text-slate-700 mb-2">Email Address</label>
+          <label htmlFor="email" className="block text-sm font-medium text-slate-700 mb-2">{t('contact.form.email')}</label>
           <input
             type="email"
             id="email"
@@ -84,7 +86,7 @@ export const ContactForm = () => {
         </div>
       </div>
       <div>
-        <label htmlFor="company" className="block text-sm font-medium text-slate-700 mb-2">Company</label>
+        <label htmlFor="company" className="block text-sm font-medium text-slate-700 mb-2">{t('contact.form.company')}</label>
         <input
           type="text"
           id="company"
@@ -95,14 +97,14 @@ export const ContactForm = () => {
         />
       </div>
       <div>
-        <label htmlFor="challenge" className="block text-sm font-medium text-slate-700 mb-2">What is your biggest AI challenge?</label>
+        <label htmlFor="challenge" className="block text-sm font-medium text-slate-700 mb-2">{t('contact.form.challenge')}</label>
         <textarea
           id="challenge"
           name="message"
           required
           rows={5}
           className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-slate-900/5 focus:border-slate-900 transition-all bg-white resize-none"
-          placeholder="Tell me about your goals and obstacles..."
+          placeholder={t('contact.form.challengePlaceholder')}
         />
       </div>
       <button
@@ -110,7 +112,7 @@ export const ContactForm = () => {
         disabled={status === 'submitting'}
         className="btn-primary w-full md:w-auto"
       >
-        {status === 'submitting' ? 'Sending...' : 'Send Message'}
+        {status === 'submitting' ? t('contact.form.submitting') : t('contact.form.submit')}
         <Send className="ml-2 w-4 h-4" />
       </button>
     </form>

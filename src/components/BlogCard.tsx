@@ -3,8 +3,11 @@ import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
 import { Calendar, Clock, ArrowRight } from 'lucide-react';
 import { BlogPost } from '../types';
+import { useTranslation } from 'react-i18next';
 
 export const BlogCard: React.FC<{ post: BlogPost }> = ({ post }) => {
+  const { t } = useTranslation();
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -33,7 +36,7 @@ export const BlogCard: React.FC<{ post: BlogPost }> = ({ post }) => {
           to={`/blog/${post.id}`}
           className="inline-flex items-center text-sm font-semibold text-blue-600 group-hover:underline underline-offset-4"
         >
-          Read Article
+          {t('home.readArticle')}
           <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
         </Link>
       </div>

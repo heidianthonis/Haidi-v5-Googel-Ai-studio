@@ -2,8 +2,11 @@ import React from 'react';
 import { motion } from 'motion/react';
 import { ArrowRight, Search, Rocket, Users } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 export const Hero = () => {
+  const { t } = useTranslation();
+
   return (
     <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -14,24 +17,30 @@ export const Hero = () => {
             transition={{ duration: 0.6 }}
           >
             <h1 className="text-5xl lg:text-7xl font-semibold tracking-tight text-slate-900 mb-6 leading-[1.1]">
-              Transform Your Business with <Link to="/services" className="text-blue-600 italic hover:underline underline-offset-8 decoration-blue-200">AI Strategy</Link>.
+              {t('hero.titlePrefix')}
+              {t('hero.titlePrefix') && ' '}
+              <Link to="/services" className="text-blue-600 italic hover:underline underline-offset-8 decoration-blue-200">
+                {t('hero.strategy')}
+              </Link>
+              {t('hero.titleSuffix') && ' '}
+              {t('hero.titleSuffix')}
             </h1>
             <p className="text-xl text-slate-600 mb-10 leading-relaxed">
-              I help companies discover AI use cases, navigate adoption challenges, and create enhanced customer journeys that drive real business value.
+              {t('hero.description')}
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
                 to="/contact"
                 className="btn-primary"
               >
-                Start Your Journey
+                {t('hero.ctaStart')}
                 <ArrowRight className="ml-2 w-4 h-4" />
               </Link>
               <Link
                 to="/services"
                 className="btn-secondary"
               >
-                Explore Services
+                {t('hero.ctaExplore')}
               </Link>
             </div>
           </motion.div>
@@ -68,25 +77,27 @@ export const Hero = () => {
 };
 
 export const Pillars = () => {
+  const { t } = useTranslation();
+
   const pillars = [
     {
       id: "01",
-      title: "AI Use Case Discovery",
-      desc: "Identify high-impact AI opportunities tailored to your business goals and industry landscape.",
+      title: t('pillars.discovery.title'),
+      desc: t('pillars.discovery.desc'),
       icon: Search,
       link: "/services#use-case-discovery"
     },
     {
       id: "02",
-      title: "AI Adoption Strategy",
-      desc: "Navigate the complexities of AI implementation with proven frameworks and best practices.",
+      title: t('pillars.adoption.title'),
+      desc: t('pillars.adoption.desc'),
       icon: Rocket,
       link: "/services#adoption-programmes"
     },
     {
       id: "03",
-      title: "Customer Journey AI",
-      desc: "Enhance customer experiences with AI-powered touchpoints across the entire journey.",
+      title: t('pillars.journey.title'),
+      desc: t('pillars.journey.desc'),
       icon: Users,
       link: "/services#customer-journeys"
     }
@@ -124,7 +135,7 @@ export const Pillars = () => {
                   {pillar.desc}
                 </p>
                 <div className="mt-8 flex items-center text-blue-600 font-medium opacity-0 group-hover:opacity-100 transition-opacity">
-                  Learn more <ArrowRight className="ml-2 w-4 h-4" />
+                  {t('pillars.learnMore')} <ArrowRight className="ml-2 w-4 h-4" />
                 </div>
               </motion.div>
             </Link>

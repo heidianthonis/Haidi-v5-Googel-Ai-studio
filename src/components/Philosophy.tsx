@@ -2,14 +2,11 @@ import React from 'react';
 import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Check } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 export const Philosophy = () => {
-  const points = [
-    "Proven track record across multiple industries",
-    "Hands-on experience with cutting-edge AI technologies",
-    "Focus on measurable business outcomes",
-    "Personalized consulting tailored to your needs"
-  ];
+  const { t } = useTranslation();
+  const points = t('philosophy.points', { returnObjects: true }) as string[];
 
   return (
     <section className="py-24 bg-blue-50/30">
@@ -21,10 +18,10 @@ export const Philosophy = () => {
             viewport={{ once: true }}
           >
             <h2 className="text-3xl lg:text-4xl font-semibold text-slate-900 mb-6">
-              Tech-Forward Approach, Human-Centered Results.
+              {t('philosophy.title')}
             </h2>
             <p className="text-lg text-slate-600 mb-8 leading-relaxed">
-              With years of experience in AI strategy and digital transformation, I combine deep technical knowledge with a practical, human-centered approach.
+              {t('philosophy.description')}
             </p>
             <ul className="space-y-4 mb-10">
               {points.map((point) => (
@@ -40,7 +37,7 @@ export const Philosophy = () => {
               to="/about"
               className="inline-flex items-center text-blue-600 font-semibold hover:underline underline-offset-4"
             >
-              Learn more about my approach
+              {t('philosophy.learnMore')}
               <ArrowRight className="ml-2 w-4 h-4" />
             </Link>
           </motion.div>
