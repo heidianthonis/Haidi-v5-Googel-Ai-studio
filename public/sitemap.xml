@@ -6,12 +6,32 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://haidi.nl/about</loc>
+    <loc>https://haidi.nl/services</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://haidi.nl/services</loc>
+    <loc>https://haidi.nl/blog</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://haidi.nl/blog/ai-ml-rag-decoding</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://haidi.nl/blog/agentic-commerce-blind-spot</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://haidi.nl/blog/ai-policy-urgency</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://haidi.nl/about</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
