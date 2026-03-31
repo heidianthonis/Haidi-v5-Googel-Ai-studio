@@ -6,6 +6,7 @@ import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { BlogPost } from '../types';
 import { useTranslation } from 'react-i18next';
+import { SEO } from '../components/SEO';
 
 export const BlogPostDetail = ({ posts }: { posts: BlogPost[] }) => {
   const { id } = useParams<{ id: string }>();
@@ -28,6 +29,10 @@ export const BlogPostDetail = ({ posts }: { posts: BlogPost[] }) => {
       exit={{ opacity: 0 }}
       className="pt-32 pb-24"
     >
+      <SEO 
+        title={`${post.title} | Haidi Insights`} 
+        description={post.excerpt || post.content.substring(0, 160)} 
+      />
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <Link
           to="/blog"

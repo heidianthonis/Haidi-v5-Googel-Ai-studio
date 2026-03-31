@@ -12,6 +12,28 @@ const resources = {
         about: 'About',
         contact: 'Contact'
       },
+      seo: {
+        home: {
+          title: 'Haidi | AI Strategy & Digital Transformation Consulting',
+          description: 'Expert AI strategy consulting to help your business discover use cases, navigate adoption, and enhance customer journeys.'
+        },
+        services: {
+          title: 'AI Services | Discovery, Adoption & Customer Journeys',
+          description: 'Explore our AI services including use case discovery, adoption strategy, and customer journey optimization.'
+        },
+        blog: {
+          title: 'AI Insights & Strategy Blog | Haidi',
+          description: 'Stay updated with the latest AI trends, implementation models, and strategic insights for business growth.'
+        },
+        about: {
+          title: 'About Haidi | Bridging AI Technology and Business Value',
+          description: 'Learn about our mission to help organizations navigate the complexities of AI adoption with a human-centered approach.'
+        },
+        contact: {
+          title: 'Contact Haidi | Start Your AI Transformation',
+          description: 'Ready to transform your business with AI? Get in touch today for a non-binding sparring session.'
+        }
+      },
       home: {
         latestHighlights: 'Latest Highlights',
         insightsDescription: 'Insights and strategies for the evolving AI landscape.',
@@ -178,6 +200,28 @@ const resources = {
         blog: 'Inzichten',
         about: 'Over',
         contact: 'Contact'
+      },
+      seo: {
+        home: {
+          title: 'Haidi | AI Strategie & Digitale Transformatie Consulting',
+          description: 'Expert AI strategie consulting om je bedrijf te helpen use cases te ontdekken, adoptie te navigeren en klantreizen te verbeteren.'
+        },
+        services: {
+          title: 'AI Diensten | Discovery, Adoptie & Klantreizen',
+          description: 'Ontdek onze AI-diensten inclusief use case discovery, adoptiestrategie en klantreisoptimalisatie.'
+        },
+        blog: {
+          title: 'AI Inzichten & Strategie Blog | Haidi',
+          description: 'Blijf op de hoogte van de nieuwste AI-trends, implementatiemodellen en strategische inzichten voor bedrijfsgroei.'
+        },
+        about: {
+          title: 'Over Haidi | De Kloof Tussen AI-Technologie en Bedrijfswaarde Overbruggen',
+          description: 'Leer meer over onze missie om organisaties te helpen bij het navigeren door de complexiteit van AI-adoptie met een mensgerichte aanpak.'
+        },
+        contact: {
+          title: 'Contact Haidi | Start Je AI-Transformatie',
+          description: 'Klaar om je bedrijf te transformeren met AI? Neem vandaag nog contact op voor een vrijblijvende sparringsessie.'
+        }
       },
       home: {
         latestHighlights: 'Laatste inzichten',

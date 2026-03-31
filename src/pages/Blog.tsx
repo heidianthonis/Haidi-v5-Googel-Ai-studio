@@ -3,6 +3,7 @@ import { motion } from 'motion/react';
 import { BlogCard } from '../components/BlogCard';
 import { BlogPost } from '../types';
 import { useTranslation } from 'react-i18next';
+import { SEO } from '../components/SEO';
 
 export const Blog = ({ posts }: { posts: BlogPost[] }) => {
   const { t } = useTranslation();
@@ -13,6 +14,7 @@ export const Blog = ({ posts }: { posts: BlogPost[] }) => {
       exit={{ opacity: 0 }}
       className="pt-32 pb-24"
     >
+      <SEO page="blog" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mb-20">
           <h1 className="text-4xl lg:text-5xl font-semibold text-slate-900 mb-6">{t('blog.title')}</h1>

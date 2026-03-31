@@ -3,6 +3,7 @@ import { motion } from 'motion/react';
 import { ContactForm } from '../components/ContactForm';
 import { Mail, MapPin, Linkedin } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import { SEO } from '../components/SEO';
 
 export const Contact = () => {
   const { t } = useTranslation();
@@ -13,6 +14,7 @@ export const Contact = () => {
       exit={{ opacity: 0 }}
       className="pt-32 pb-24"
     >
+      <SEO page="contact" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-20">
           <div>

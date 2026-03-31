@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { useTranslation } from 'react-i18next';
+import { SEO } from '../components/SEO';
 
 export const About = () => {
   const { t } = useTranslation();
@@ -13,6 +14,7 @@ export const About = () => {
       exit={{ opacity: 0 }}
       className="pt-32 pb-24"
     >
+      <SEO page="about" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Top Section */}
         <div className="grid lg:grid-cols-2 gap-16 items-center mb-32">

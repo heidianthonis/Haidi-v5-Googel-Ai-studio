@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { BlogPost } from '../types';
 import { useTranslation } from 'react-i18next';
+import { SEO } from '../components/SEO';
 
 export const Home = ({ posts }: { posts: BlogPost[] }) => {
   const { t } = useTranslation();
@@ -17,6 +18,7 @@ export const Home = ({ posts }: { posts: BlogPost[] }) => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
     >
+      <SEO page="home" />
       <Hero />
       <Pillars />
       <Philosophy />
